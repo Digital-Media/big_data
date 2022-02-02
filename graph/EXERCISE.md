@@ -21,9 +21,6 @@ Note that with the latter the database is reset at each logout.
 
 ### Step 2
 
-For Neo4J you can use its free [AuraDB](https://neo4j.com/cloud/aura/). 
-It can be used for free for ever and upgraded to max 128 GB. 
-Alternatively you can download the [Desktop Version](https://neo4j.com/download-neo4j-now/). 
 Use the [Cypher Reference](https://neo4j.com/docs/cypher-refcard/current/) for examples and detailed syntax.
 
 #### Transform the data model from PostreSQL/MySQL to Neo4J
