@@ -10,7 +10,7 @@ ElasticSearch is also used to show a typical BIG DATA pipeline.
 
 See [INSTALL.md](https://github.com/Digital-Media/big_data/blob/main/elk-stack/INSTALL.md) for Details and Troubleshooting
 
-## Exercise for ELK Stack
+## Exercises for ELK Stack
 
 Open a terminal in the Big Data Image. Have a look at a [Guideline provided by DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elastic-stack-on-ubuntu-20-04-de) to see installation steps for Ubuntu 20.04.
 Store commands of each step in a *.txt file.
