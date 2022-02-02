@@ -6,6 +6,6 @@ Neo4J supports them doing this.
 
 # Get an Neo4J installtion
 
-See ## Installation
+## Installation
 
 See [INSTALL.md](https://github.com/Digital-Media/big_data/blob/main/graph/INSTALL.md) for Details and Troubleshooting
