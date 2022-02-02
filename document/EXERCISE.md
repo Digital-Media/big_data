@@ -8,4 +8,4 @@ Neo4J supports them doing this.
 
 See ## Installation
 
-See [INSTALL.md](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md) for Details and Troubleshooting
+See [INSTALL.md](https://github.com/Digital-Media/big_data/blob/main/graph/INSTALL.md) for Details and Troubleshooting
