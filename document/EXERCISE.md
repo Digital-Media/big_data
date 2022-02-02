@@ -13,7 +13,7 @@ Work with the mongo shell within the provided image.
 
 ### Step 1: Adding Data
 
-1. Start mongo
+1. Start `mongo`
 2. Show available databases
 3. Create database onlineshop
 4. Insert the following data sets
