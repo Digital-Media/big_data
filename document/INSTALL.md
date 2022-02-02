@@ -18,8 +18,8 @@ If you want to manage your Container and add a Dockerfile or docker-compose.yml
 
 ### Use Docker Desktop
 
-See installation of Docker Desktop in this [Installation Guide](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md)
-You can adapt the steps there for your needs. The Download Link for Docker Desktop is also there.
+See installation of Docker Desktop in this [Installation Guide](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md#install-docker)
+You can adapt the steps there for your needs. The Download Link for Docker Desktop and how to install it is also there.
 
 ### Get the official MongoDB Docker image
 ```shell
