@@ -30,6 +30,7 @@ Open Powershell or other Terminal.
 docker pull postgres:14
 ```
 ### Run a Container
+Can't be done with Docker Desktop, because -e is not supported in Optional Settings in RUN menu.
 ```shell
 docker run --name PostgreSQL -e POSTGRES_PASSWORD=geheim -d postgres:14
 ```
@@ -57,4 +58,29 @@ If you want to manage your Container and add a Dockerfile or docker-compose.yml
 - Follow further steps in this [Installation Guide](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md#install-docker)
   to manage a Docker Container. 
 
+#### Add a web tool for administration
+
+```shell
+docker pull adminer
+```
+```shell
+#> file docker-compose.yml
+
+# Use postgres/geheim user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: geheim
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+```
 
