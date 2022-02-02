@@ -49,7 +49,7 @@ Use the [Cypher Reference](https://neo4j.com/docs/cypher-refcard/current/) for e
 ### Step 3
 Add the Nodes and Edges of the complex example in the scriptum to Neo4J.
 
-1.	Look at the [SQL example](https://github.com/Digital-Media/big_data/recursive_cte.sql) to add missing nodes and edges.
+1.	Look at the [SQL example](https://github.com/Digital-Media/big_data/blob/main/graph/recursive_cte.sql) to add missing nodes and edges.
 2.	Rewrite the MATCH statement in a way that makes it clear that only nodes with a label :Person are relevant and use a different variable to return the result.
 ```sql
       MATCH
