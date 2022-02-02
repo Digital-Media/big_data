@@ -4,7 +4,7 @@ We use Neo4j to write CQL queries and PostgreSQL for Graph-Queries based on an E
 Apache Spark will set up CQL on top of it's SQL query interface. So it's useful to understand both ways to work with graphs.
 Neo4J supports them doing this.
 
-## Get an Neo4J installation
+## Get an Neo4J and PostgreSQL installation
 
 See [INSTALL.md](https://github.com/Digital-Media/big_data/blob/main/graph/INSTALL.md) for Details and Troubleshooting
 
@@ -16,8 +16,6 @@ The SQL standard supports graph queries through the RECURSIVE WITH clause.
 ### Step 1
 
 Transform the recursive with examples of [this repo](https://github.com/Digital-Media/big_data/blob/main/graph/recursive_cte.sql) from MySQL to PostgreSQL. 
-Use PGAdmin either in the VMWare-Image or the [free online version](https://www.katacoda.com/enterprisedb/scenarios/pgadmin-sandbox). 
-Note that with the latter the database is reset at each logout.
 
 ### Step 2
 

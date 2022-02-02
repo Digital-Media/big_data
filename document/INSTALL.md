@@ -4,16 +4,16 @@
 
 [Get free Tier on MongoDB Atlas](https://docs.atlas.mongodb.com/tutorial/deploy-free-tier-cluster/)
 
-## Use Docker Container
-
-Open Powershell or other Terminal.
+## Use a MongoDB Docker Container
 
 ### Use Docker Desktop
 
 For a Download Link and how to install Docker Desktop see [Installation Guide](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md#install-docker)
 
-
 ### Get the official MongoDB Docker image
+
+Open Powershell or other Terminal.
+
 ```shell
 docker pull mongo
 ```
