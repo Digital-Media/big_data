@@ -37,7 +37,7 @@ docker run --name PostgreSQL -e POSTGRES_PASSWORD=geheim -d postgres:14
 #### Get access to the container
 Either use Docker Desktop and the Shell-Button or run
 ```shell
-docker exec -it PostgreSQL /bin/bash
+docker exec -it PostgreSQL /src/bash
 ```
 #### Stop Container
 ```shell

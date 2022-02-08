@@ -1,8 +1,0 @@
-FROM elasticsearch
-
-LABEL maintainer="mhteaching2703@gmail.com"
-
-RUN mkdir /etc/elasticsearch/analysis \
-    && cd /etc/elasticsearch/analysis \
-    && git clone https://github.com/uschindler/german-decompounder.git . \
-    && sudo systemctl start elasticsearch.service
