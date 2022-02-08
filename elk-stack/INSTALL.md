@@ -12,13 +12,13 @@ Open Powershell or other Terminal.
 Note that tag `latest` is not supported.
 
 ```shell
-docker pull elasticsearch
+docker pull elasticsearch:7.17.0
 ```
 ```shell
-docker pull kibana
+docker pull kibana:7.17.0
 ```
 ```shell
-docker pull logstash
+docker pull logstash:7.17.0
 ```
 
 
@@ -45,3 +45,14 @@ Now you can access ElasticSearch with [Kibana http:\\localhost:9200](http:\\loca
 ### Starting full ELK-Stack and use Logstash
 
 Use the provided docker-compose.yml
+
+### Adding FileBeat
+
+See [Elastic Documentation](https://www.elastic.co/guide/en/beats/filebeat/current/running-on-docker.html)
+
+```shell
+docker pull store/elastic/filebeat:7.17.0
+```
+```shell
+docker run docker.elastic.co/beats/filebeat:7.17.0 setup -E setup.kibana.host=kibana:5601 -E output.elasticsearch.hosts=["elasticsearch:9200"]
+```
