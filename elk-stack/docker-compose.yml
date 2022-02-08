@@ -1,0 +1,21 @@
+# Use postgres/geheim user/password credentials
+version: '3.9'
+
+services:
+
+  es:
+    build:
+      dockerfile: Dockerfile-elk
+    restart: always
+    ports:
+      - 9200:9200
+
+  kibana:
+    image: kibana
+    restart: always
+    ports:
+      - 8080:8080
+
+  logstash:
+    image: logstash
+    restart: always

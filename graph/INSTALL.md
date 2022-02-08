@@ -60,10 +60,6 @@ If you want to manage your Container and add a Dockerfile or docker-compose.yml
 
 #### Add a web tool for administration
 
-```shell
-docker pull adminer
-```
-
 Use the provided docker-compose.yml to start adminer and manage postgreSQL
 ```shell
 docker composer up -d
