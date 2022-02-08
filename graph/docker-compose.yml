@@ -1,0 +1,16 @@
+# Use postgres/geheim user/password credentials
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: geheim
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

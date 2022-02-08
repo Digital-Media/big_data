@@ -63,24 +63,8 @@ If you want to manage your Container and add a Dockerfile or docker-compose.yml
 ```shell
 docker pull adminer
 ```
+
+Use the provided docker-compose.yml to start adminer and manage postgreSQL
 ```shell
-#> file docker-compose.yml
-
-# Use postgres/geheim user/password credentials
-version: '3.1'
-
-services:
-
-  db:
-    image: postgres:14
-    restart: always
-    environment:
-      POSTGRES_PASSWORD: geheim
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+docker composer up -d
 ```
-
