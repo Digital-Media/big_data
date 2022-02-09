@@ -40,13 +40,13 @@ You can access ElasticSearch [in a browser](http:\\localhost:9200)
 docker run -d --name kibana --net big_data -p 5601:5601 kibana:7.17.0
 ```
 
-Now you can access ElasticSearch with [Kibana http:\\localhost:9200](http:\\localhost:9200)
+Now you can access ElasticSearch with [Kibana http:\\localhost:5601](http:\\localhost:5601)
 
 ### Starting full ELK-Stack and use Logstash
 
 Use the provided docker-compose.yml
 
-### Adding FileBeat
+### Getting FileBeat
 
 See [Elastic Documentation](https://www.elastic.co/guide/en/beats/filebeat/current/running-on-docker.html)
 
