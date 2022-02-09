@@ -64,3 +64,7 @@ Use the provided docker-compose.yml to start adminer and manage postgreSQL
 ```shell
 docker composer up -d
 ```
+
+### Use Tigergraph
+
+Get a [Free Trial](https://www.tigergraph.com/get-tigergraph/)
