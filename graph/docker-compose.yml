@@ -5,12 +5,10 @@ services:
 
   db:
     image: postgres:14
-    restart: always
     environment:
       POSTGRES_PASSWORD: geheim
 
   adminer:
     image: adminer
-    restart: always
     ports:
       - 8080:8080
