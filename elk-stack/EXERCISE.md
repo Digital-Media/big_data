@@ -15,9 +15,10 @@ See [INSTALL.md](https://github.com/Digital-Media/big_data/blob/main/elk-stack/I
 Store commands of each step in a *.txt file.
 
 ### Step 1: See a simple LogStash-Pipeline in Action
-       
-Open Commandline of [big_data_elk:ss22](https://github.com/Digital-Media/big_data/blob/main/elk-stack/INSTALL.md#managing-elasticsearch-kibana-logstash-and-filebeat-on-your-own)
-See [Elastic Guide](https://www.elastic.co/guide/en/logstash/current/first-event.html)
+
+- Open Powershell or other terminal.
+- Open Commandline of [big_data_elk:ss22](https://github.com/Digital-Media/big_data/blob/main/elk-stack/INSTALL.md#managing-elasticsearch-kibana-logstash-and-filebeat-on-your-own)
+- See [Elastic Guide](https://www.elastic.co/guide/en/logstash/current/first-event.html) for first steps with logstash
 1. ```shell
    docker container run --name elkf -it big_data_elk:ss22 /bin/bash
    ```
@@ -36,7 +37,7 @@ See [Elastic Guide](https://www.elastic.co/guide/en/logstash/current/first-event
 
 Work with logstash as shown in [Step 1](https://github.com/Digital-Media/big_data/blob/main/elk-stack/EXERCISE.md#step-1-see-a-simple-logstash-pipeline-in-action)
 
-This is useful for testing a jdbc-connection to a database
+- This is useful for testing a jdbc-connection to a database
 ```shell
 ./logstash -e 'input {
       jdbc {
@@ -48,11 +49,11 @@ This is useful for testing a jdbc-connection to a database
       }
       } output { stdout {} }'
 ```
-Open a commandline
+- Open a commandline
 
 See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad)
 1. Create a table in postgres. For Example: orders, visits, order_items
-2. See for [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/examples.sql).
+2. See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/src/examples.sql).
 3. create a configuration file to get data from postgres public.orders in /etc/logstash/conf.d
 4. optional: configure a pipeline in `/etc/logstash/pipelines.yml` (a default is there)
 
