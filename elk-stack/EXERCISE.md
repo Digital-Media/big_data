@@ -34,7 +34,8 @@ See [Elastic Guide](https://www.elastic.co/guide/en/logstash/current/first-event
 
 ### Step 2: Working with LogStach jdbc and PostgreSQL
 
-Work with logstash as shown in [Step 1]()
+Work with logstash as shown in [Step 1](https://github.com/Digital-Media/big_data/blob/main/elk-stack/EXERCISE.md#step-1-see-a-simple-logstash-pipeline-in-action)
+
 This is useful for testing a jdbc-connection to a database
 ```shell
 ./logstash -e 'input {
