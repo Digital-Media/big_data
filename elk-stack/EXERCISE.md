@@ -50,7 +50,7 @@ Work with logstash as shown in [Step 1](https://github.com/Digital-Media/big_dat
       } output { stdout {} }'
 ```
 - Open a commandline
-- See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad)
+- See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad) for how to setup a pipeline with jdbc.
 1. Create a table in postgres. For Example: orders, visits, order_items
 2. See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/src/examples.sql).
 3. create a configuration file to get data from postgres public.orders in /etc/logstash/conf.d
