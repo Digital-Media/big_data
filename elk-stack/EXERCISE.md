@@ -12,15 +12,80 @@ See [INSTALL.md](https://github.com/Digital-Media/big_data/blob/main/elk-stack/I
 
 ## Exercises for ELK Stack
 
-Open a terminal in the Big Data Image. Have a look at a [Guideline provided by DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elastic-stack-on-ubuntu-20-04-de) to see installation steps for Ubuntu 20.04.
 Store commands of each step in a *.txt file.
 
-### Step 1: Adding a new module to filebeat and test it in Kibana
+### Step 1: See a simple LogStash-Pipeline in Action
+       
+Open Commandline of [big_data_elk:ss22](https://github.com/Digital-Media/big_data/blob/main/elk-stack/INSTALL.md#managing-elasticsearch-kibana-logstash-and-filebeat-on-your-own)
+See [Elastic Guide](https://www.elastic.co/guide/en/logstash/current/first-event.html)
+1. ```shell
+   docker container run --name elkf -it big_data_elk:ss22 /bin/bash
+   ```
+2. if you start a shell with Docker Desktop enter `bash` to use a more comfortable shell.
+3. find out where logstash is installed
+4. cd to bin directory of logstash
+5. test a simple pipeline with input from and output to commandline
+   wait until pipeline is running
+   `[INFO ] 2022-02-14 07:56:05.167 [Agent thread] agent - Pipelines running {:count=>1, :running_pipelines=>[:main], :non_running_pipelines=>[]}`
+   then type `hello world`
+6. stop the pipeline
+7. list logstash plugins with its version
+8. see if jdbc-integration-plugin is installed
 
+### Step 2: Working with LogStach jdbc and PostgreSQL
+
+Work with logstash as shown in [Step 1]()
+This is useful for testing a jdbc-connection to a database
+```json
+./logstash -e 'input {
+      jdbc {
+      jdbc_connection_string =>     "jdbc:mysql://localhost:3306/onlineshop"
+      jdbc_user => "mysql"
+      jdbc_password => "geheim"
+      jdbc_driver_class => "org.mysql.Driver"
+      statement => "SELECT * from public.orders"
+      }
+      } output { stdout {} }'
+```
+Open Commandline
+See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad)
+1. Create a table in postgres. For Example: orders, visits, order_items
+2. See for [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/examples.sql).
+3. create a configuration file to get data from postgres public.orders in /etc/logstash/conf.d
+4. optional: configure a pipeline in `/etc/logstash/pipelines.yml` (a default is there)
+
+### Step 3: Adding a new module to filebeat and test it in Kibana
+
+Get Docker-Container for Filebeats and follow Instructions in [Elastic Documentation](https://www.elastic.co/guide/en/beats/filebeat/current/running-on-docker.html)
+
+1. Open Powershell or other terminal.
+2. Get [filebeat.docker.yml](https://raw.githubusercontent.com/elastic/beats/7.17/deploy/docker/filebeat.docker.yml)
+   or with curl
+```shell
+curl -L -O https://raw.githubusercontent.com/elastic/beats/7.17/deploy/docker/filebeat.docker.yml
+```
+It is already available in /src to get started immediately.
+2. See which modules of filebeat are already enabled.
+3. Add the module elasticsearch or system. (already enabled in Docker container)
+4. Test if the module is enabled for Ubuntu full image.
+5. Map a new Filebeat configuration to a custom image
+
+
+```shell
+FROM docker.elastic.co/beats/filebeat:7.17.0
+COPY --chown=root:filebeat src/filebeat.yml /usr/share/filebeat/filebeat.yml
+```
+```shell
+docker compose -f docker-compose.filebeat.yml up -d
+```
+```shell
+docker compose -f docker-compose.es-kibana.yml -f docker-compose.logstash.yml -f docker-compose.filebeat.yml up -d
+```
+--remove-orphans??? reduce count of containers? volumes?
 Open Commandline
 1. Stop filebeat
 2. See which modules of filebeat are already enabled.
-3. Add the module elasticsearch or system
+3. Add the module elasticsearch or system. (already enabled in Docker container)
 4. Test if the module is enabled.
 5. Start filebeat
 6. Setup pipeline for module ElasticSearch
@@ -35,42 +100,9 @@ Open Commandline
 15. How does filebeat handle enable and disable?
 16. Where are logfiles for ElasticSearch stored?
 
-### Step 2: See a simple LogStash-Pipeline in Action
-       
-Open Commandline
-See [Elastic Guide](https://www.elastic.co/guide/en/logstash/current/first-event.html)
-1. Go to Installation-Directory of logstash
-2. enter bin directory
-3. become root to get write-access to data-dirctory
-4. start logstash with input from commandline and output to commandline
-5. enter some text
-6. end logstash commandline
-7. list logstash plugins with its version
-8. see if jdbc-integration-plugin is installed
+### Step 4 for additional points
 
-      This is useful for testing a jdbc-connection to a database
-```json
-./logstash -e 'input {
-      jdbc {
-      jdbc_connection_string =>     "jdbc:mysql://localhost:3306/onlineshop"
-      jdbc_user => "mysql"
-      jdbc_password => "geheim"
-      jdbc_driver_class => "org.mysql.Driver"
-      statement => "SELECT * from public.orders"
-      }
-      } output { stdout {} }'
-```
-### Step 2: Working with LogStach jdbc and PostgreSQL
-
-Open Commandline
-See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad)
-1.	Create a table in postgres. For Example: orders, visits, order_items
-2.	See for [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/examples.sql).
-3.	create a configuration file to get data from postgres public.orders in /etc/logstash/conf.d
-4.	optional: configure a pipeline in `/etc/logstash/pipelines.yml` (a default is there)
-      Step 3 for additional 8 points
-
-Call Elastic/Kibana-Dashboard in Browser : 
+Call Elastic/Kibana-Dashboard in Browser :
 ```shell
 localhost:5601
 ```
