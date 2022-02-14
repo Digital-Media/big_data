@@ -36,7 +36,7 @@ See [Elastic Guide](https://www.elastic.co/guide/en/logstash/current/first-event
 
 Work with logstash as shown in [Step 1]()
 This is useful for testing a jdbc-connection to a database
-```json
+```shell
 ./logstash -e 'input {
       jdbc {
       jdbc_connection_string =>     "jdbc:mysql://localhost:3306/onlineshop"
