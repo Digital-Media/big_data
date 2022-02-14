@@ -26,9 +26,11 @@ docker compose -f docker-stack.yml up -d
 
 ### Managing ElasticSearch, Kibana, Logstash and Filebeat on your own
 
+***!!! NEVER install ELK-Stack in production this way. This is only for educational purpose!!!***
+See [EXERCISE.md](https://github.com/Digital-Media/big_data/blob/main/elk-stack/EXERCISE.md) to understand why.
 ```shell
 docker build -f Dockerfile-ELKF -t big_data_elk:ss22 .
 ```
 ```shell
-docker container run --name elkf -it big_data_elk:ss22 /bin/bash
+docker container run --rm --name elkf -it big_data_elk:ss22 /bin/bash
 ```
