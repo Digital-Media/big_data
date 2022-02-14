@@ -26,11 +26,12 @@ See [Elastic Guide](https://www.elastic.co/guide/en/logstash/current/first-event
 4. cd to bin directory of logstash
 5. test a simple pipeline with input from and output to commandline
    wait until pipeline is running
+   
    `[INFO ] 2022-02-14 07:56:05.167 [Agent thread] agent - Pipelines running {:count=>1, :running_pipelines=>[:main], :non_running_pipelines=>[]}`
    then type `hello world`
-6. stop the pipeline
-7. list logstash plugins with its version
-8. see if jdbc-integration-plugin is installed
+7. stop the pipeline
+8. list logstash plugins with its version
+9. see if jdbc-integration-plugin is installed
 
 ### Step 2: Working with LogStach jdbc and PostgreSQL
 
