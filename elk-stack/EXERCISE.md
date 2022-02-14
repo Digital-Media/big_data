@@ -21,17 +21,16 @@ See [Elastic Guide](https://www.elastic.co/guide/en/logstash/current/first-event
 1. ```shell
    docker container run --name elkf -it big_data_elk:ss22 /bin/bash
    ```
-2. if you start a shell with Docker Desktop enter `bash` to use a more comfortable shell.
-3. find out where logstash is installed
-4. cd to bin directory of logstash
-5. test a simple pipeline with input from and output to commandline
-   wait until pipeline is running
+2. If you start a shell with Docker Desktop enter `bash` to use a more comfortable shell.
+3. Find out where logstash is installed
+4. `cd` to bin directory of logstash
+5. Test a simple pipeline with input from and output to commandline. Wait until pipeline is running
    
    `[INFO ] 2022-02-14 07:56:05.167 [Agent thread] agent - Pipelines running {:count=>1, :running_pipelines=>[:main], :non_running_pipelines=>[]}`
-   then type `hello world`
-7. stop the pipeline
-8. list logstash plugins with its version
-9. see if jdbc-integration-plugin is installed
+   Then type `hello world`
+7. Stop the pipeline
+8. List logstash plugins with its version
+9. See if jdbc-integration-plugin is installed
 
 ### Step 2: Working with LogStach jdbc and PostgreSQL
 
@@ -49,7 +48,8 @@ This is useful for testing a jdbc-connection to a database
       }
       } output { stdout {} }'
 ```
-Open Commandline
+Open a commandline
+
 See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad)
 1. Create a table in postgres. For Example: orders, visits, order_items
 2. See for [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/examples.sql).
