@@ -1,0 +1,10 @@
+FROM ubuntu:focal
+
+LABEL maintainer="mhteaching2703@gmail.com"
+
+# Copy src to /src
+COPY src /src
+# Install scripts
+RUN /src/basic_tools.sh \
+    && /src/install-ELK-FileBeat.sh \
+    && /src/install-ELK+FileBeat-StartStop.sh

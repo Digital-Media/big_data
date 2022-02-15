@@ -29,9 +29,13 @@ Store commands of each step in a *.txt file.
    
    `[INFO ] 2022-02-14 07:56:05.167 [Agent thread] agent - Pipelines running {:count=>1, :running_pipelines=>[:main], :non_running_pipelines=>[]}`
    Then type `hello world`
-7. Stop the pipeline
-8. List logstash plugins with its version
-9. See if jdbc-integration-plugin is installed
+6. Stop the pipeline
+7. List logstash plugins with its version
+8. See if jdbc-integration-plugin is installed
+9. Test the logstash configuration with
+   ```shell
+   /usr/share/logstash/bin/logstash --path.settings /usr/share/logstash/config -t
+   ```
 
 ### Step 2: Working with LogStach jdbc and PostgreSQL
 
@@ -39,7 +43,7 @@ Work with logstash as shown in [Step 1](https://github.com/Digital-Media/big_dat
 
 - This is useful for testing a jdbc-connection to a database
 ```shell
-./logstash -e 'input {
+/usr/share/logstash/bin/logstash -e 'input {
       jdbc {
       jdbc_connection_string =>     "jdbc:mysql://localhost:3306/onlineshop"
       jdbc_user => "mysql"
