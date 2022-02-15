@@ -57,8 +57,8 @@ Work with logstash as shown in [Step 1](https://github.com/Digital-Media/big_dat
 - See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad) for how to setup a pipeline with jdbc.
 1. Create a table in postgres. For Example: orders, visits, order_items
 2. See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/src/examples.sql).
-3. create a configuration file to get data from postgres public.orders in /etc/logstash/conf.d
-4. optional: configure a pipeline in `/etc/logstash/pipelines.yml` (a default is there)
+3. create a configuration file to get data from postgres public.orders|visits|order_itmes in /usr/share/logstash/config
+4. optional: configure a pipeline in `/usr/share/logstash/config/pipelines.yml` (a default is there)
 
 ### Step 3: Adding a new module to filebeat and test it in Kibana
 
