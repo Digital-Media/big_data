@@ -20,22 +20,25 @@ Store commands of each step in a *.txt file.
 - Open Commandline of [big_data_elk:ss22](https://github.com/Digital-Media/big_data/blob/main/elk-stack/INSTALL.md#managing-elasticsearch-kibana-logstash-and-filebeat-on-your-own)
 - See [Elastic Guide](https://www.elastic.co/guide/en/logstash/current/first-event.html) for first steps with logstash
 1. ```shell
-   docker container run --name elkf -it big_data_elk:ss22 /bin/bash
+   docker container run --rm -d --name elkf -it big_data_elk:ss22 /bin/bash
    ```
-2. If you start a shell with Docker Desktop enter `bash` to use a more comfortable shell.
-3. Find out where logstash is installed
-4. `cd` to bin directory of logstash
-5. Test a simple pipeline with input from and output to commandline. Wait until pipeline is running
+2. ```shell
+   docker exec -it elkf /bin/bash
+   ```
+3. If you start a shell with Docker Desktop enter `bash` to use a more comfortable shell.
+4. Find out where logstash is installed
+5. `cd` to bin directory of logstash
+6. Test a simple pipeline with input from and output to commandline. Wait until pipeline is running
    
    `[INFO ] 2022-02-14 07:56:05.167 [Agent thread] agent - Pipelines running {:count=>1, :running_pipelines=>[:main], :non_running_pipelines=>[]}`
    Then type `hello world`
-6. Stop the pipeline
-7. List logstash plugins with its version
-8. See if jdbc-integration-plugin is installed
-9. Test the logstash configuration with
-   ```shell
-   /usr/share/logstash/bin/logstash --path.settings /usr/share/logstash/config -t
-   ```
+7. Stop the pipeline
+8. List logstash plugins with its version
+9. See if jdbc-integration-plugin is installed
+10. Test the logstash configuration with
+    ```shell
+    /usr/share/logstash/bin/logstash --path.settings /usr/share/logstash/config -t
+    ```
 
 ### Step 2: Working with LogStach jdbc and PostgreSQL
 
@@ -45,11 +48,11 @@ Work with logstash as shown in [Step 1](https://github.com/Digital-Media/big_dat
 ```shell
 /usr/share/logstash/bin/logstash -e 'input {
       jdbc {
-      jdbc_connection_string =>     "jdbc:mysql://localhost:3306/onlineshop"
-      jdbc_user => "mysql"
+      jdbc_connection_string =>     "jdbc:mariadb://127.0.0.1:6633/onlineshop"
+      jdbc_user => "onlineshop"
       jdbc_password => "geheim"
-      jdbc_driver_class => "org.mysql.Driver"
-      statement => "SELECT * from public.orders"
+      jdbc_driver_class => "Java::org.mariadb.jdbc.Driver"
+      statement => "SELECT * from onlineshop.orders"
       }
       } output { stdout {} }'
 ```
@@ -64,14 +67,15 @@ Work with logstash as shown in [Step 1](https://github.com/Digital-Media/big_dat
 
 Get Docker-Container for Filebeats and follow Instructions in [Elastic Documentation](https://www.elastic.co/guide/en/beats/filebeat/current/running-on-docker.html)
 
-1. Open Powershell or other terminal.
-2. Get [filebeat.docker.yml](https://raw.githubusercontent.com/elastic/beats/7.17/deploy/docker/filebeat.docker.yml)
+- Open Powershell or other terminal.
+- Get [filebeat.docker.yml](https://raw.githubusercontent.com/elastic/beats/7.17/deploy/docker/filebeat.docker.yml)
    or with curl
 ```shell
 curl -L -O https://raw.githubusercontent.com/elastic/beats/7.17/deploy/docker/filebeat.docker.yml
 ```
-It is already available in /src to get started immediately.
-2. See which modules of filebeat are already enabled.
+- It is already available in /src to get started immediately.
+1. See which modules of filebeat are already enabled.
+2. Test the filebeat configuration
 3. Add the module elasticsearch or system. (already enabled in Docker container)
 4. Test if the module is enabled for Ubuntu full image.
 5. Map a new Filebeat configuration to a custom image

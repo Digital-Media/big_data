@@ -7,7 +7,7 @@
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add -
 echo "deb https://artifacts.elastic.co/packages/8.x/apt stable main" | tee /etc/apt/sources.list.d/elastic-8.x.list
 apt-get update
-apt-get install elasticsearch logstash kibana filebeat libpostgresql-jdbc-java
+apt-get install elasticsearch logstash kibana filebeat libpostgresql-jdbc-java libmariadb-java
 
 # configuring elasticsearch for localhost only.
 # https://www.elastic.co/guide/en/elasticsearch/reference/current/important-settings.html
@@ -75,4 +75,6 @@ echo 'output {
 # workarounds due to bugs
 # installing jdbc postgres driver for logstash
 cp /usr/share/java/postgresql.jar /usr/share/logstash/logstash-core/lib/jars
-
+cp /usr/share/java/mariadb-java-client.jar /usr/share/logstash/logstash-core/lib/jars
+# configure filebeat
+cp /src/filebeat.yml /usr/share/filebeat

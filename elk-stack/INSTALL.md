@@ -24,6 +24,13 @@ or use docker compose v3.3
 docker compose -f docker-stack.yml up -d
 ```
 
+### Get Filebeat
+
+```shell
+docker pull elastic/filebeat:8.0.0
+```
+
+
 ### Managing ElasticSearch, Kibana, Logstash and Filebeat on your own
 
 ***!!! NEVER install ELK-Stack in production this way. This is only for educational purpose!!!***
