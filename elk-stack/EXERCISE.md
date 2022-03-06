@@ -20,22 +20,25 @@ Store commands of each step in a *.txt file.
 - Open Commandline of [big_data_elk:ss22](https://github.com/Digital-Media/big_data/blob/main/elk-stack/INSTALL.md#managing-elasticsearch-kibana-logstash-and-filebeat-on-your-own)
 - See [Elastic Guide](https://www.elastic.co/guide/en/logstash/current/first-event.html) for first steps with logstash
 1. ```shell
-   docker container run --rm -d --name elkf -it big_data_elk:ss22 /bin/bash
+   docker container run -itd --rm --name elkf big_data_elk:ss22
    ```
 2. ```shell
+   docker container container network connect webnet elkf
+   ```
+3. ```shell
    docker exec -it elkf /bin/bash
    ```
-3. If you start a shell with Docker Desktop enter `bash` to use a more comfortable shell.
-4. Find out where logstash is installed
-5. `cd` to bin directory of logstash
-6. Test a simple pipeline with input from and output to commandline. Wait until pipeline is running
+4. If you start a shell with Docker Desktop enter `bash` to use a more comfortable shell.
+5. Find out where logstash is installed
+6. `cd` to bin directory of logstash
+7. Test a simple pipeline with input from and output to commandline. Wait until pipeline is running
    
    `[INFO ] 2022-02-14 07:56:05.167 [Agent thread] agent - Pipelines running {:count=>1, :running_pipelines=>[:main], :non_running_pipelines=>[]}`
    Then type `hello world`
-7. Stop the pipeline
-8. List logstash plugins with its version
-9. See if jdbc-integration-plugin is installed
-10. Test the logstash configuration with
+8. Stop the pipeline
+9. List logstash plugins with its version
+10. See if jdbc-integration-plugin is installed
+11. Test the logstash configuration with
     ```shell
     /usr/share/logstash/bin/logstash --path.settings /usr/share/logstash/config -t
     ```
@@ -44,15 +47,15 @@ Store commands of each step in a *.txt file.
 
 Work with logstash as shown in [Step 1](https://github.com/Digital-Media/big_data/blob/main/elk-stack/EXERCISE.md#step-1-see-a-simple-logstash-pipeline-in-action)
 
-- This is useful for testing a jdbc-connection to a database
+- This is useful for testing a jdbc-connection to a  (replace ip with ip of your host)
 ```shell
 /usr/share/logstash/bin/logstash -e 'input {
       jdbc {
-      jdbc_connection_string =>     "jdbc:mariadb://127.0.0.1:6633/onlineshop"
+      jdbc_connection_string =>     "jdbc:mariadb://mariadb=192.168.0.41:6633/onlineshop"
       jdbc_user => "onlineshop"
       jdbc_password => "geheim"
       jdbc_driver_class => "Java::org.mariadb.jdbc.Driver"
-      statement => "SELECT * from onlineshop.orders"
+      statement => "SELECT * FROM onlineshop.user"
       }
       } output { stdout {} }'
 ```
