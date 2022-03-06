@@ -39,5 +39,8 @@ See [EXERCISE.md](https://github.com/Digital-Media/big_data/blob/main/elk-stack/
 docker build -f Dockerfile-ELKF -t big_data_elk:ss22 .
 ```
 ```shell
-docker container run --rm --name elkf -it big_data_elk:ss22 /bin/bash
+docker container run --rm --name elkf -itd big_data_elk:ss22
+```
+```shell
+docker network connect webnet elkf
 ```
