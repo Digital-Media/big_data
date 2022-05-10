@@ -39,7 +39,7 @@ db.orders.insertMany([
 
 1. Find all rows, that have an item with quantity (qty) 8.
 2. Work with map_reduce, without using variables and sum up the key total_sum for each user_id where status is “A”.
-3. See [Map Reduce Documentiont](https://docs.mongodb.com/manual/core/map-reduce/) to see, how that works.
+3. See [Map Reduce Documention](https://docs.mongodb.com/manual/core/map-reduce/) to see, how that works.
 4. Write the query to show the result. Use pretty() to show in a more human readable format. 
  See [Mongo Shell Reference](https://docs.mongodb.com/manual/reference/mongo-shell/)
 5. Rewrite the example in a way, that you use variables for the mapping and reduce function, that are used in db….mapReduce(); (https://docs.mongodb.com/manual/reference/method/db.collection.mapReduce/#mongodb-method-db.collection.mapReduce scroll down for examples)
