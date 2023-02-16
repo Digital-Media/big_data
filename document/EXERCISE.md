@@ -9,7 +9,7 @@ See [INSTALL.md](https://github.com/Digital-Media/big_data/blob/main/document/IN
 ## Exercises with MongoDB
 
 Rewrite the example from [MongoDB Website]( https://docs.mongodb.com/manual/tutorial/map-reduce-examples/).
-Work with the mongo shell within the provided image.
+Work with the mongo shell within the provided image or get an Account on MongoDB Atlas.
 
 ### Step 1: Adding Data
 
@@ -35,43 +35,30 @@ db.orders.insertMany([
 
 5. Find all rows of collection orders.
 
-### Step 2: Working with map_reduce
+### Step 2: Working with map_reduce 
 
-1. Find all rows, that have an item with quantity (qty) 8.
-2. Work with map_reduce, without using variables and sum up the key total_sum for each user_id where status is “A”.
-3. See [Map Reduce Documention](https://docs.mongodb.com/manual/core/map-reduce/) to see, how that works.
-4. Write the query to show the result. Use pretty() to show in a more human readable format. 
- See [Mongo Shell Reference](https://docs.mongodb.com/manual/reference/mongo-shell/)
-5. Rewrite the example in a way, that you use variables for the mapping and reduce function, that are used in db….mapReduce(); (https://docs.mongodb.com/manual/reference/method/db.collection.mapReduce/#mongodb-method-db.collection.mapReduce scroll down for examples)
-6. Write the query to show the result and sort it ascending.
- See [Mongo Shell Reference](https://docs.mongodb.com/manual/reference/mongo-shell/)
-7. Update the status of the order with user_id 4 and date_ordered "2020-03-23" and set the value of status = “D”
-8. Rerun the map_reduce-functions written in 2+3 or 5+6 and see, if the result is different.
+Map-Reduce is no longer supported for versions above 5.0 or in MongoDB Atlas Cloud.
 
-### Step 3: More complex map_reduce
+Read the Doku to understand a principle introduced by Goolge for GFS and the open source hadoop Filesystem, that is based on the idea of GFS.
 
-1. You’ve got to work around an coding-error, where the prebuilt total_sum wasn’t calculated at insert.
-2. Sum up the prices and quantities of each item of a user to build the sum of total_sums, that was calculated in step 2.
-3. Define a variable that holds the function to do the mapping
-4. Define a variable that holds the function to do the reducing.
-5. Write the mapReduce()-statement and query for all orders with status = “A”
-6. Write the query to show the result.
+See [Map Reduce Documention](https://docs.mongodb.com/manual/core/map-reduce/) to see, how that works.
 
-### Step 4: Rewritting Map-Reduce with Aggregation
+### Step 4: Use MongoDB Atlas Aggregation to build a pipeline
 
-1. Write a query using aggregation to build the sum of total_sum like in step 2
+1. Write a query using aggregation to build the sum of total_sum.
 2. Write a query using aggregation to build the sum of prices*qty for every item of a user.
-3. See  https://docs.mongodb.com/manual/reference/method/db.collection.mapReduce/#mongodb-method-db.collection.mapReduce for that. Scroll down for examples.
-4. For more details see https://docs.mongodb.com/manual/meta/aggregation-quick-reference/
+3. See  [Map Reduce Doku](https://docs.mongodb.com/manual/reference/method/db.collection.mapReduce/#mongodb-method-db.collection.mapReduce) for a example aggregation. Scroll down for examples.
+4. For more details see [Aggregation Quick Reference](https://docs.mongodb.com/manual/meta/aggregation-quick-reference/)
+5. Or use the Aggregation Tab in MongoDB Atlas
 
 ### Step 5: Deleting rows and the Database
 
 1. Delete all rows in the collection orders
 2. Drop the database onlineshop
-3. https://docs.mongodb.com/manual/reference/mongo-shell/
+3. If you use the shell see [Doku](https://docs.mongodb.com/manual/reference/mongo-shell/)
       
 ### Step 6 Exercise for additional points
 
-Build your own example to demonstrate map_reduce and aggregation
+Build your own example to demonstrate a complexer aggregation.
 
 
