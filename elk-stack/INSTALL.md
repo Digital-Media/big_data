@@ -12,7 +12,9 @@ Docker Desktop on Windows makes adminstrative tasks easier to handle.
 Open Powershell or other Terminal.
 Note that tag `latest` is not supported.
 
-We use the template from [gitHub](https://github.com/deviantony/docker-elk) for demonstration purposes 
+We use the template from [gitHub](https://github.com/deviantony/docker-elk) for demonstration purposes.
+Cloning from Digital-Media guarantees, that you work with a version, that was used during creating the exercises.
+If the original template changes, that has no effect on the repo on Digital-Media, because changes are not merged automatically.
 ```shell
 git clone https://github.com/Digital-Media/elk-stack-dock.git
 ```
