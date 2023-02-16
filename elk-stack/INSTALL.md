@@ -27,3 +27,9 @@ docker compose -f docker-stack.yml up -d
 The current version already supports extensions like filebeat, metricbeat and so on
 
 Using and starting these extension is part of the instruction in the [exercises](https://github.com/Digital-Media/big_data/blob/main/elk-stack/EXERCISE.md)
+
+### Get postgres and pgadminer container
+
+``` shell
+git clone https://github.com/Digital-Media/postgres 
+```
