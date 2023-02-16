@@ -11,18 +11,20 @@ Alternatively you can download the [Desktop Version](https://neo4j.com/download-
 
 # Get Access to PostgreSQL
 
-## PostgreSQL Sandbox
-
-[free online version](https://www.katacoda.com/enterprisedb/scenarios/pgadmin-sandbox).
-Note that the database is reset at each logout.
-
 ## Use a PostgreSQL Docker Container
 
 ### Use Docker Desktop
 
 For a Download Link and how to install Docker Desktop see [Installation Guide](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md#install-docker)
 
-### Get the official PostgreSQL:v14 Docker image
+#### Add PostgreSQL and a web tool for administration
+
+[See Digital-Media Repo](https://github.com/Digital-Media/postgres)
+
+With Docker Desktop there is a *PGAdmin4* extension available.
+Use `host.docker.internal:5432` to connect to the local postgres container.
+
+### Just get the official PostgreSQL:v14 Docker image
 
 Open Powershell or other Terminal.
 
@@ -58,13 +60,3 @@ If you want to manage your Container and add a Dockerfile or docker-compose.yml
 - Follow further steps in this [Installation Guide](https://github.com/Digital-Media/fhooe-web-dock/blob/main/INSTALL.md#install-docker)
   to manage a Docker Container. 
 
-#### Add a web tool for administration
-
-Use the provided docker-compose.yml to start adminer and manage postgreSQL
-```shell
-docker composer up -d
-```
-
-### Use Tigergraph
-
-Get a [Free Trial](https://www.tigergraph.com/get-tigergraph/)
