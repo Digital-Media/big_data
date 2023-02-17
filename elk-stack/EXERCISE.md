@@ -68,8 +68,12 @@ The next steps are useful for testing a jdbc-connection to a Postgres container
 1. Create a table in postgres. For Example: orders, visits, order_items
 2. See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/src/examples.sql).
 3. create a configuration file to get data from postgres public.orders|visits|order_itmes in /usr/share/logstash/pipeline/logstash.conf
-- This file is mapped to `<path-to-your-docker>/elk-stack-dock/logstash/pipeline/logstash.conf`
-- optional: configure a pipeline in `/usr/share/logstash/config/pipelines.yml` (a default is there). This file is not mapped.
+4. See [jdbc-input Doku](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html)
+5. Add tracking for PK column with :sql_last_value
+6. You have to add a line for scheduling to make logstasth run without interruption: `schedule => "*/5 * * * *"`
+   - This file is mapped to `<path-to-your-docker>/elk-stack-dock/logstash/pipeline/logstash.conf`
+   - optional: configure a pipeline in `/usr/share/logstash/config/pipelines.yml` (a default is there). This file is not mapped.
+7. Go to Kibana -> Management -> Dev Tools and query logstash index, to see the data rows stored in ES by the pipeline built.
 
 ### Step 3: Adding a Metricbeat pipeline and build dashboards in Kibana
 
