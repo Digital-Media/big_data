@@ -1,3 +1,5 @@
+# Rework this statements to work with PostgreSQL
+
 DROP TABLE IF EXISTS visit;
 DROP TABLE IF EXISTS order_item;
 DROP TABLE IF EXISTS orders;
@@ -24,7 +26,9 @@ CREATE TABLE IF NOT EXISTS order_item (
 INSERT INTO order_item (orders_idorders, product_idproduct, quantity, price) VALUES (1, 1, 2, 500.00);
 INSERT INTO order_item (orders_idorders, product_idproduct, quantity, price) VALUES (1, 2, 1, 200.00);
 INSERT INTO order_item (orders_idorders, product_idproduct, quantity, price) VALUES (2, 3, 2, 500.00);
-INSERT INTO order_item (orders_idorders, product_idproduct, quantity, price) VALUES (2, 2, 2, 200.00);CREATE TABLE IF NOT EXISTS `visit` (
+INSERT INTO order_item (orders_idorders, product_idproduct, quantity, price) VALUES (2, 2, 2, 200.00);
+
+CREATE TABLE IF NOT EXISTS `visit` (
   `idvisit` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
   `ip_address` varchar(45) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
