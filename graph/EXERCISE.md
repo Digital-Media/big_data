@@ -15,7 +15,7 @@ The SQL standard supports graph queries through the RECURSIVE WITH clause.
 
 ### Step 1
 
-Transform the recursive with examples of [this repo](https://github.com/Digital-Media/big_data/blob/main/graph/src/recursive_cte.sql) from MySQL to PostgreSQL. 
+Transform the recursive with examples of [this repo](https://github.com/Digital-Media/big_data/blob/main/graph/recursive_cte.sql) from MySQL to PostgreSQL. 
 
 ### Step 2
 
