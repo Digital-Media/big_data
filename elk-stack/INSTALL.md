@@ -19,7 +19,7 @@ If the original template changes, that has no effect on the repo on Digital-Medi
 git clone https://github.com/Digital-Media/elk-stack-dock.git
 ```
 
-use docker compose v3.3 or hiher
+use docker compose v3.3 or higher
 ```shell
 docker compose -f docker-stack.yml up -d
 ```
