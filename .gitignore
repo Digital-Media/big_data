@@ -1,5 +1,4 @@
 .idea
-webapp/*
 !.gitattributes
 !.gitignore
 !README.md
