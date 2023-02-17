@@ -66,7 +66,7 @@ The next steps are useful for testing a jdbc-connection to a Postgres container
 - Open a commandline
 - See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad) for how to setup a pipeline with jdbc.
 1. Create a table in postgres. For Example: orders, visits, order_items
-2. See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/src/examples.sql).
+2. See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/examples.sql).
 3. create a configuration file to get data from postgres public.orders|visits|order_itmes in /usr/share/logstash/pipeline/logstash.conf
 4. See [jdbc-input Doku](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html)
 5. Add tracking for PK column with :sql_last_value
