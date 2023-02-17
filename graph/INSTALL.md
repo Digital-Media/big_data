@@ -9,6 +9,34 @@ It can be used for free for ever and upgraded to max 128 GB.
 
 Alternatively you can download the [Desktop Version](https://neo4j.com/download-neo4j-now/).
 
+## Docker
+
+See [Developer Doku](https://neo4j.com/developer/docker-run-neo4j/)
+
+*Powershell*
+docker run `
+--name testneo4j `
+-p7474:7474 -p7687:7687 `
+-d `
+-v $HOME/neo4j/data:/data `
+-v $HOME/neo4j/logs:/logs `
+-v $HOME/neo4j/import:/var/lib/neo4j/import `
+-v $HOME/neo4j/plugins:/plugins `
+--env NEO4J_AUTH=neo4j/password `
+neo4j:latest
+
+*Linux*
+docker run \
+--name testneo4j \
+-p7474:7474 -p7687:7687 \
+-d \
+-v $HOME/neo4j/data:/data \
+-v $HOME/neo4j/logs:/logs \
+-v $HOME/neo4j/import:/var/lib/neo4j/import \
+-v $HOME/neo4j/plugins:/plugins \
+--env NEO4J_AUTH=neo4j/password \
+neo4j:latest
+
 # Get Access to PostgreSQL
 
 ## Use a PostgreSQL Docker Container
