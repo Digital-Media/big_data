@@ -62,7 +62,7 @@ If you use the shell see [Doku](https://docs.mongodb.com/manual/reference/mongo-
       
 ### Step 5 Exercise for additional points
 
-Build your own example to demonstrate a complexer aggregation with a stage `geonear`, `search` (based on Lucene in Atlas Cloud)
+Build your own example to demonstrate a complexer aggregation with a stage `geonear`, `search` (based on Lucene, that is only available on Atlas Cloud)
 
 
 # Work with MongoDB Atlas Data API
