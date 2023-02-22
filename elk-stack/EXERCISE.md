@@ -75,11 +75,11 @@ The next steps are useful for testing a jdbc-connection to a Postgres container
    - optional: configure a pipeline in `/usr/share/logstash/config/pipelines.yml` (a default is there). This file is not mapped.
 7. Go to Kibana -> Management -> Dev Tools and query logstash index, to see the data rows stored in ES by the pipeline built.
 
-Compare with MongoDB Pipeline:
+8. Compare with MongoDB Pipeline 
 - See https://www.mongodb.com/developer/products/mongodb/mongoimport-guide/ to get a glue how MongoDB supports you in this case.
 - See for a video-description: https://www.mongodb.com/developer/videos/import-data-into-mongodb-3-ways---bonus--export-data-from-postgres/
 - MongoDB Compass can be installed locally, but Docker project was last updated in 2021.
-
+9. Write a short summary, what is different to ELK and give a statement, what you think is easier to automate.
 
 ### Step 3: Adding a Metricbeat pipeline and build dashboards in Kibana
 
