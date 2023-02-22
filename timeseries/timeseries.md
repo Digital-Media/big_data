@@ -37,4 +37,4 @@ For smaller data sets you can start with Excel to get first insights. For always
 4. If not try to manipulate data and see if this is dedected and add a screenshot of the dashboard to show them.
 
 5. Look at [Timeseries Doku of MongoDB](https://www.mongodb.com/docs/manual/core/timeseries-collections/), to find out, how you would have to prepare your time series for MongoDB, to work with dem efficiently.
-6. Write a short summary, what you have to watch for for working with time series in MongoDB.
+6. Write a short summary, what you need to pay attentention to while working with time series in MongoDB.
