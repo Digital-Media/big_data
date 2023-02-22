@@ -84,12 +84,14 @@ Add some data manually.
 ## In Linux bash:
 
 Write curl query for
+
 1. findOne
 2. find many
 3. insertOne
 4. updateOne
 5. deleteOne
 
+Or use any programming language you like to send a http-request.
 
 ### In Powershell
 
