@@ -14,6 +14,7 @@ Alternatively you can download the [Desktop Version](https://neo4j.com/download-
 See [Developer Doku](https://neo4j.com/developer/docker-run-neo4j/)
 
 *Powershell*
+``` shell
 docker run `
 --name testneo4j `
 -p7474:7474 -p7687:7687 `
@@ -24,8 +25,9 @@ docker run `
 -v $HOME/neo4j/plugins:/plugins `
 --env NEO4J_AUTH=neo4j/password `
 neo4j:latest
-
+```
 *Linux*
+``` shell
 docker run \
 --name testneo4j \
 -p7474:7474 -p7687:7687 \
@@ -36,7 +38,7 @@ docker run \
 -v $HOME/neo4j/plugins:/plugins \
 --env NEO4J_AUTH=neo4j/password \
 neo4j:latest
-
+```
 # Get Access to PostgreSQL
 
 ## Use a PostgreSQL Docker Container
