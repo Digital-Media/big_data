@@ -66,14 +66,15 @@ The next steps are useful for testing a jdbc-connection to a Postgres container
 - Open a commandline
 - See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad) for how to setup a pipeline with jdbc.
 1. Create a table in postgres. For Example: orders, visits, order_items
-2. See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/examples.sql).
-3. create a configuration file to get data from postgres public.orders|visits|order_itmes in /usr/share/logstash/pipeline/logstash.conf
-4. See [jdbc-input Doku](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html)
-5. Add tracking for PK column with :sql_last_value
-6. You have to add a line for scheduling to make logstasth run without interruption: `schedule => "*/5 * * * *"`
+2. Connect postgres Container to ELK-Stack: `docker network connect elk-stack-dock_elk postgres`
+3. See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/examples.sql).
+4. create a configuration file to get data from postgres public.orders|visits|order_itmes in /usr/share/logstash/pipeline/logstash.conf
+5. See [jdbc-input Doku](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html)
+6. Add tracking for PK column with :sql_last_value
+7. You have to add a line for scheduling to make logstasth run without interruption: `schedule => "*/5 * * * *"`
    - This file is mapped to `<path-to-your-docker>/elk-stack-dock/logstash/pipeline/logstash.conf`
    - optional: configure a pipeline in `/usr/share/logstash/config/pipelines.yml` (a default is there). This file is not mapped.
-7. Go to Kibana -> Management -> Dev Tools and query logstash index, to see the data rows stored in ES by the pipeline built.
+8. Go to Kibana -> Management -> Dev Tools and query logstash index, to see the data rows stored in ES by the pipeline built.
 
 8. Compare with MongoDB Pipeline 
 - See https://www.mongodb.com/developer/products/mongodb/mongoimport-guide/ to get a glue how MongoDB supports you in this case.
