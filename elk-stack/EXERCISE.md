@@ -90,7 +90,7 @@ The next steps are useful for testing a jdbc-connection to a Postgres container
 1. activate requested passwords for metricbeat in `<path-to-your-docker>/elk-stack-dock/.env`.
 2. rerun setup container
 3. restart metricbeat
-4. Test, if data are retrieved by elasticsearch
+4. Test, if data are retrieved by elasticsearch with curl or steop over to 8. Dev Tools for that.
    - `curl -u elastic:changeme http://localhost:9200/_search`
    - `curl -u elastic:changeme http://localhost:9200/logstash/_search`
    - `curl -u elastic:changeme http://localhost:9200/logstash/_search?pretty=true`
