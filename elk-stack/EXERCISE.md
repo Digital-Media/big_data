@@ -51,6 +51,7 @@ Work with logstash as shown in [Step 1](https://github.com/Digital-Media/big_dat
 The next steps are useful for testing a jdbc-connection to a Postgres container
 - replace ip with ip or name of your host
 - host.docker.internal:postgresport if you use a docker container with a separate network
+- or connect postgres Container to ELK-Stack with: `docker network connect elk-stack-dock_elk postgres` to use `jdbc:postgresql://postgres:5432/onlineshop`
 - use postgres connector instead of mariadb in the following example
 ```shell
 /usr/share/logstash/bin/logstash --path.data data2 -e 'input {
@@ -66,7 +67,6 @@ The next steps are useful for testing a jdbc-connection to a Postgres container
 - Open a commandline
 - See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad) for how to setup a pipeline with jdbc.
 1. Create a table in postgres. For Example: orders, visits, order_items
-2. Connect postgres Container to ELK-Stack: `docker network connect elk-stack-dock_elk postgres`
 3. See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/examples.sql).
 4. create a configuration file to get data from postgres public.orders|visits|order_itmes in /usr/share/logstash/pipeline/logstash.conf
 5. See [jdbc-input Doku](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html)
