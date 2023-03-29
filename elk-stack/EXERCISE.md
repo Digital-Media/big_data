@@ -43,7 +43,7 @@ Store commands of each step with additional description - if necessary to follow
     /usr/share/logstash/bin/logstash --path.settings /usr/share/logstash/config -t
     ```
 
-### Step 2: Working with LogStach jdbc and PostgreSQL
+### Step 2: Working with LogStash jdbc and PostgreSQL
 
 Work with logstash as shown in [Step 1](https://github.com/Digital-Media/big_data/blob/main/elk-stack/EXERCISE.md#step-1-see-a-simple-logstash-pipeline-in-action)
 
