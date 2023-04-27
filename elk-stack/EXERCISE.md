@@ -49,10 +49,7 @@ Work with logstash as shown in [Step 1](https://github.com/Digital-Media/big_dat
 
 
 The next steps are useful for testing a jdbc-connection to a Postgres container
-- replace ip with ip or name of your host
-- host.docker.internal:postgresport if you use a docker container with a separate network
-- or connect postgres Container to ELK-Stack with: `docker network connect elk-stack-dock_elk postgres` to use `jdbc:postgresql://postgres:5432/onlineshop`
-- use postgres connector instead of mariadb in the following example
+- rework the following example to use postgres connector instead of mariadb and add additional parameters to send data
 ```shell
 /usr/share/logstash/bin/logstash --path.data data2 -e 'input {
       jdbc {
@@ -64,23 +61,24 @@ The next steps are useful for testing a jdbc-connection to a Postgres container
       }
       } output { stdout {} }'
 ```
+1. Create a table in postgres. For Example: orders, visits, order_items. 
+- See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/examples.sql).
+- Rework the configuration file /usr/share/logstash/pipeline/logstash.conf to get data from postgres public.orders|visits|order_itmes 
+- The file to work with is mapped to `<path-to-your-docker>/elk-stack-dock/logstash/pipeline/logstash.conf`
+2. replace ip with name of your host or use host.docker.internal:postgresport if you use a docker container with a separate network  or connect postgres Container to ELK-Stack with: `docker network connect elk-stack-dock_elk postgres` to use `jdbc:postgresql://postgres:5432/onlineshop`
 - Open a commandline
 - See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad) for how to setup a pipeline with jdbc.
-1. Create a table in postgres. For Example: orders, visits, order_items
-3. See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/examples.sql).
-4. create a configuration file to get data from postgres public.orders|visits|order_itmes in /usr/share/logstash/pipeline/logstash.conf
-5. See [jdbc-input Doku](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html)
-6. Add tracking for PK column with :sql_last_value
-7. You have to add a line for scheduling to make logstasth run without interruption: `schedule => "*/5 * * * *"`
-   - This file is mapped to `<path-to-your-docker>/elk-stack-dock/logstash/pipeline/logstash.conf`
+3. Install postgres-driver. See [jdbc-input Doku](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html)
+4. Add tracking for PK column with :sql_last_value
+5. You have to add a line for scheduling to make logstasth run without interruption: `schedule => "*/5 * * * *"`
    - optional: configure a pipeline in `/usr/share/logstash/config/pipelines.yml` (a default is there). This file is not mapped.
-8. Go to Kibana -> Management -> Dev Tools and query logstash index, to see the data rows stored in ES by the pipeline built.
+6. Go to Kibana -> Management -> Dev Tools and query logstash index, to see the data rows stored in ES by the pipeline built.
 
-8. Compare with MongoDB Pipeline 
+- Compare with MongoDB Pipeline 
 - See https://www.mongodb.com/developer/products/mongodb/mongoimport-guide/ to get a glue how MongoDB supports you in this case.
 - See for a video-description: https://www.mongodb.com/developer/videos/import-data-into-mongodb-3-ways---bonus--export-data-from-postgres/
 - MongoDB Compass can be installed locally, but Docker project was last updated in 2021.
-9. Write a short summary, what is different to ELK and give a statement, what you think is easier to automate.
+7. Write a short summary, what is different to ELK and give a statement, what you think is easier to automate.
 
 ### Step 3: Adding a Metricbeat pipeline and build dashboards in Kibana
 
@@ -95,10 +93,10 @@ The next steps are useful for testing a jdbc-connection to a Postgres container
    - `curl -u elastic:changeme http://localhost:9200/_search`
    - `curl -u elastic:changeme http://localhost:9200/logstash/_search`
    - `curl -u elastic:changeme http://localhost:9200/logstash/_search?pretty=true`
-9. See [Query DSL Doku](https://www.elastic.co/guide/en/elasticsearch/reference/8.6/query-dsl.html) for the next steps.
+- See [Query DSL Doku](https://www.elastic.co/guide/en/elasticsearch/reference/8.6/query-dsl.html) for the next steps.
 5. either find the curl command to query for a specific entry in a table with a match
 6. and one, that doesn't match any database entry
-7. Connect to Kibana in Browser
+7. or Connect to Kibana in Browser
 8. Goto Burger Menu -> Management -> Dev Tools
 10. Query for all entries in logstash index.
 11. Query for a specific entry, like you did with curl
