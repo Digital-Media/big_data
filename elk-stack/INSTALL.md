@@ -19,6 +19,8 @@ If the original template changes, that has no effect on the repo on Digital-Medi
 git clone https://github.com/Digital-Media/elk-stack-dock.git
 ```
 
+Rework .env File to activate all users before setup and set all Passwords to "changeme".
+
 use docker compose v3.3 or higher
 ```shell
 docker compose -f docker-stack.yml up -d
@@ -27,9 +29,3 @@ docker compose -f docker-stack.yml up -d
 The current version already supports extensions like filebeat, metricbeat and so on
 
 Using and starting these extension is part of the instruction in the [exercises](https://github.com/Digital-Media/big_data/blob/main/elk-stack/EXERCISE.md)
-
-### Get postgres and pgadminer container
-
-``` shell
-git clone https://github.com/Digital-Media/postgres 
-```
