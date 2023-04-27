@@ -1,4 +1,5 @@
 # Rework this statements to work with PostgreSQL
+#
 
 DROP TABLE IF EXISTS visit;
 DROP TABLE IF EXISTS order_item;
@@ -34,8 +35,7 @@ CREATE TABLE IF NOT EXISTS `visit` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_iduser` bigint unsigned DEFAULT NULL,
   PRIMARY KEY (`idvisit`),
-  KEY `fk_visits_users1` (`user_iduser`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 --
 -- Daten für Tabelle `visit`
