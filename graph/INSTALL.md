@@ -3,7 +3,7 @@
 ## Cloud
 
 For Neo4J you can use its free [AuraDB](https://neo4j.com/cloud/aura/).
-It can be used for free for ever and upgraded to max 128 GB.
+It can be used for free forever and upgraded to max 128 GB.
 
 ## Desktop
 
@@ -13,6 +13,9 @@ Alternatively you can download the [Desktop Version](https://neo4j.com/download-
 
 See [Developer Doku](https://neo4j.com/developer/docker-run-neo4j/)
 
+Use a [docker-compose.yml](https://github.com/Digital-Media/neo4j)
+
+or run docker from the commandline
 *Powershell*
 ``` shell
 docker run `
