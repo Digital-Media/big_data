@@ -61,18 +61,31 @@ The next steps are useful for testing a jdbc-connection to a Postgres container
       }
       } output { stdout {} }'
 ```
-1. Create a table in postgres. For Example: orders, visits, order_items. 
-- See [Examples](https://github.com/Digital-Media/big_data/blob/main/elk-stack/examples.sql).
+1. Create database onlineshop and some tables in postgres
+```script
+docker exec -it elk_postgres /bin/bash -c "psql -Upostgres </scripts/examples.sql"
+```
 - Rework the configuration file /usr/share/logstash/pipeline/logstash.conf to get data from postgres public.orders|visits|order_itmes 
 - The file to work with is mapped to `<path-to-your-docker>/elk-stack-dock/logstash/pipeline/logstash.conf`
-2. replace ip with name of your host or use host.docker.internal:postgresport if you use a docker container with a separate network  or connect postgres Container to ELK-Stack with: `docker network connect elk-stack-dock_elk postgres` to use `jdbc:postgresql://postgres:5432/onlineshop`
+2. replace ip:port with name elasticsearch:5433
 - Open a commandline
 - See this [medium blog](https://medium.com/@emreceylan/how-to-sync-postgresql-data-to-elasticsearch-572af15845ad) for how to setup a pipeline with jdbc.
 3. Install postgres-driver. See [jdbc-input Doku](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html)
 4. Add tracking for PK column with :sql_last_value
 5. You have to add a line for scheduling to make logstasth run without interruption: `schedule => "*/5 * * * *"`
    - optional: configure a pipeline in `/usr/share/logstash/config/pipelines.yml` (a default is there). This file is not mapped.
-6. Go to Kibana -> Management -> Dev Tools and query logstash index, to see the data rows stored in ES by the pipeline built.
+6. As output-section add lines for hosts =>, user =>, document_id =>, doc_as_upsert =>, user => and password =>;
+```script
+elasticsearch {
+		hosts => "elasticsearch:9200"
+        index => "logstash"
+        document_id => "logstash_%{userid}"
+        doc_as_upsert => true
+		user => "logstash_internal"
+		password => "${LOGSTASH_INTERNAL_PASSWORD}"
+	}
+```
+7. Go to Kibana -> Management -> Dev Tools and query logstash index, to see the data rows stored in ES by the pipeline built.
 
 - Compare with MongoDB Pipeline 
 - See https://www.mongodb.com/developer/products/mongodb/mongoimport-guide/ to get a glue how MongoDB supports you in this case.
