@@ -65,7 +65,7 @@ If you use the shell see [Doku](https://docs.mongodb.com/manual/reference/mongo-
 Build your own example to demonstrate a complexer aggregation with a stage `geonear`, `search` (based on Lucene, that is only available on Atlas Cloud)
 
 
-# Exercises with MongoDB Atlas Data API
+## Exercises with MongoDB Atlas Data API
 
 Create an Atlas Account for free [here](https://www.mongodb.com/cloud/atlas/register)
 Create an API Key.
@@ -76,12 +76,12 @@ Create a collection user with frist_name, last_name, email, password, date_regis
 
 Add some data manually.
 
-## Test and work with API:
+### Test and work with API:
 - [Data API Basics](https://www.mongodb.com/docs/atlas/api/data-api/)
 - [Advanced Atlas Client](https://www.mongodb.com/developer/products/atlas/advanced-data-api-with-atlas-cli/)
 - [Standard Data API Resources](https://www.mongodb.com/docs/atlas/api/data-api-resources/#std-label-data-api-resources)
 
-## In Linux bash:
+### In Linux bash:
 
 Write curl query for
 
